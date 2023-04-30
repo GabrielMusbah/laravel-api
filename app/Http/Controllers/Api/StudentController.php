@@ -40,7 +40,10 @@ class StudentController extends Controller
 
     public function update(Student $student, StudentFormRequest $request)
     {
-        $student->fill($request->all());
+        $student->fill([
+            'name' => $request->name,
+            'email' => $request->email
+        ]);
 
         $student->save();
 
